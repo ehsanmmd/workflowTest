@@ -6,3 +6,9 @@ jobs:
     steps:
       - name: Running Hello world
         run: echo Hello world!
+      - name: Run lint for all commits
+        run: |
+          for commit in $(git rev-list ${{ github.base_ref }}..${{ github.head_ref }}); do
+              git checkout $commit
+              echo "run test"
+          done
