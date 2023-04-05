@@ -7,6 +7,6 @@ jobs:
       - name: Run lint for all commits
         run: |
           for commit in $(git rev-list ${{ github.base_ref }}..${{ github.head_ref }}); do
-              git checkout $commit
+              # git checkout $commit
               echo "run test"
           done
