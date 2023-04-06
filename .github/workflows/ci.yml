@@ -1,6 +1,5 @@
 run-name: learning GitHub Actions
 on: [pull_request]
-env: FOR_LINTER
 jobs:
   Greeting:
     runs-on: ubuntu-latest
