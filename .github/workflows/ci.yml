@@ -1,5 +1,6 @@
 run-name: learning GitHub Actions
 on: [pull_request]
+env: FOR_LINTER
 jobs:
   Greeting:
     runs-on: ubuntu-latest
@@ -12,5 +13,7 @@ jobs:
         run: |
           for commit in $(git log --oneline | awk '{print $1;}'); do
               git checkout $commit
-              echo "the commit hash is ${commit}"
+              FOR_LINTER="${commit}"
+
+              echo "the commit hash is ${commit} and ${FOR_LINTER}"
           done
