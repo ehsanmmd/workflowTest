@@ -10,7 +10,7 @@ jobs:
           fetch-depth: 0
       - name: Run lint for all commits
         run: |
-          for commit in $(git ll | awk '{print $1;}'); do
+          for commit in $(git log --oneline | awk '{print $1;}'); do
               git checkout $commit
               echo "the commit hash is ${commit}"
           done
